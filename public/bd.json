@@ -9,6 +9,11 @@
             "srcImg":"https://user-images.githubusercontent.com/60759188/210270546-a963a477-2c9c-4890-b148-44e900aca252.png", 
             "github":"https://github.com/TheOnlyFastCoder2/DynamicKeyBoarding", 
             "website":"https://dynamic-key-boarding.vercel.app/"
+        },
+        {
+            "srcImg":"https://user-images.githubusercontent.com/60759188/188951534-bded06bc-da83-4445-b1db-a403c997c273.png", 
+            "github":"https://github.com/TheOnlyFastCoder2/Snake", 
+            "website":"https://theonlyfastcoder2.github.io/Snake/"
         }
     ],
     "aboutMe": {
