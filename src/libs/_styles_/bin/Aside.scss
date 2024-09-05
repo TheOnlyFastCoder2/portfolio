@@ -1,0 +1,59 @@
+@import "../settings.scss";
+
+.Aside {
+    @apply bg-white;
+    z-index: 10;
+    box-shadow: -2px 0 0 1px rgba($color: $background, $alpha: 0.2);
+    &-nav {
+        @apply 
+            flex flex-col items-center gap-4 py-5 h-full
+            lg:flex-row lg:py-0 lg:px-5 lg:justify-center;
+
+        &-item {
+            @apply 
+                relative
+                flex justify-center items-center
+                size-8 rounded-md cursor-pointer shadow-md
+                lg:bg-white;
+                transition: 0.5s ease;
+              
+                &:before {
+                    content: attr(data-name);
+                    display: block;
+                    position: absolute;
+                    top:0; right:120%;
+                    min-width: 100%;
+                    color: $black;
+                    border-radius: 0.375rem;
+                    text-transform: capitalize;
+                    padding: 5px 10px;
+                    background: $white;
+                    white-space: pre;
+                    outline: 2px solid $black;
+                    opacity: 0;
+                }
+                
+
+                @media (max-width:1024px) {
+                    &::before {
+                        top:120%; right: -50%;
+                    }
+                }
+                
+                &:focus, &:focus-visible, &:hover {
+                    transform: scale(1.2);
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+    
+                svg {
+                    @apply size-6  ;
+    
+                    path {
+                        @apply fill-black;
+                    }
+                }
+        }
+    }
+}

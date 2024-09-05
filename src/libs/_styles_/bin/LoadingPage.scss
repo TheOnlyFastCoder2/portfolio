@@ -1,0 +1,19 @@
+.LoadingPage {
+    @apply w-screen h-screen  text-black flex-col;
+
+    &, & > div {
+        @apply flex justify-center items-center gap-3;
+    }
+
+
+    &-svg {
+        @apply  relative fill-black flex justify-center items-center;
+        animation: rotating 0.8s ease infinite;        
+        height:  2cap;
+        
+        @keyframes rotating {
+            0% {transform: rotate(360deg); }
+            80% {transform: rotate(0deg);}
+        }
+    }
+}

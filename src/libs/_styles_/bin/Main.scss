@@ -1,0 +1,19 @@
+.Main {
+    @apply m-2 bg-white rounded-md  overflow-y-scroll;
+    scroll-behavior: smooth;
+    * {
+        scroll-behavior: smooth;
+    }
+
+    &-content {
+        @apply size-full min-h-full h-full;
+  
+        & > div {
+            @apply min-h-full w-full pb-20;
+            // &.Home {
+            //     @apply min-h-[700px] xl:min-h-full;
+            // }
+        }
+    }
+    
+}

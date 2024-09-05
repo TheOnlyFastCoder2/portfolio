@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+Mono:wght@100..900&display=swap');
+$white: #ffffff;
+$decor: #1abc9c;
+$dark: #737374;
+$black: #404042;
+$background: #EEEDF8;
+
+
+
+@tailwind base;
+@layer base {
+    body {
+        @apply w-screen h-screen flex justify-center items-center;
+    }
+    #root {
+        @apply bg-background;
+        outline: 20px solid $black;
+
+        max-width: 1980px;
+        max-height: 1080px;
+
+        width: 100vw;
+        height: 100vh;        
+        display: grid;
+        
+        
+        font-family: "Inter", sans-serif;
+        // font-optical-sizing: auto;
+
+        font-style: normal;
+
+        grid-template-columns: 1fr 61px; 
+        grid-template-rows: 49px 1fr 55px; 
+        grid-template-areas: 
+            "header header"
+            "main aside"
+            "footer aside"; 
+
+        header {grid-area: header;}
+        aside {grid-area: aside;}
+        main {grid-area: main;}
+        footer {grid-area: footer;}
+        
+
+        @media (max-width: 1024px) {
+            grid-template-columns: 1fr; 
+            grid-template-rows: 100px 61px 1fr 55px; 
+
+            grid-template-areas: 
+            "header header"
+            "aside aside"
+            "main main"
+            "footer footer"; 
+        }
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        // font-weight: 400;
+        scrollbar-width:thin;
+        scrollbar-color: transparent transparent;       
+        // box-shadow: 0 0 0 1px red;
+       
+
+   
+    }
+
+    button, a {
+        cursor: pointer;
+    }
+    
+    img {
+        width: 100%;
+    }
+
+    ul, a {
+        text-decoration: none; 
+        list-style-type: none;
+    }
+
+    h1, h1 > span {
+        @apply min-lg:leading-[90%] leading-[110%] sm:leading-[120%];
+        font-size: clamp(35px, 6vw , 90px);
+        font-weight: 900;
+        letter-spacing: 2px;
+    }
+    h2 {
+        font-size: clamp(26px, 2vw + 1rem, 36px);
+        line-height: 112%;
+        font-weight: 900;
+    }
+
+    h3 {
+        font-size: clamp(18px,1.7vw + 1rem,24px);
+        line-height: 100%;
+        font-weight: 900;
+    }
+
+    body, li ,a , h4,  button {
+        font-size: clamp(14px, .5vw + 1rem,24px);
+        line-height: 135%;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+    }
+
+    p,h4,span {
+        font-size: clamp(12px, .5vw + 1rem,18px);
+        line-height: 155%;
+        font-weight: 400;
+        letter-spacing: 0.1em;
+    }
+
+   
+}

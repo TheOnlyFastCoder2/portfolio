@@ -1,0 +1,35 @@
+.About {
+    @apply flex justify-center items-center;
+    
+    & > .container {
+        @apply flex flex-col gap-8;
+        width: Min(80%, 800px);   
+    }
+    
+    &-story{text-align: center}
+    &-skills, &-story {
+        h3 {@apply text-black uppercase mb-4;}
+        p {@apply text-justify  text-dark;}
+    }
+
+    &-skills {
+        ul {
+         @apply flex gap-4 bg-black py-3 px-4 overflow-x-auto mb-5;
+         &::before {
+             content:"🧠 "
+         }
+         li {
+             @apply 
+                 px-5  text-[16px] font-semibold cursor-pointer
+                 content-center text-black bg-white 
+                 rounded-sm hover:bg-decor hover:text-white;
+            
+            &.active {
+                @apply bg-decor text-white
+            }
+            
+         }
+        }
+     }
+   
+}

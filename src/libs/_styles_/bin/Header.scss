@@ -1,0 +1,17 @@
+.Header {
+    @apply flex lg:flex-col bg-white;
+
+    &-marquee {
+        @apply
+            flex-grow text-center content-center  font-semibold text-black
+            lg:hidden lg:flex-grow-[0.4];
+            
+    }
+
+    &-namePage {
+        @apply 
+            min-w-[270px]  bg-black text-white lg:flex-grow
+            font-semibold text-center content-center uppercase font-extrabold;
+    }
+    
+}
