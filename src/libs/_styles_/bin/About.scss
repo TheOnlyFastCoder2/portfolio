@@ -9,11 +9,7 @@
     &-story{text-align: center}
     &-skills, &-story {
         h3 {@apply text-black uppercase mb-4;}
-        p {@apply text-justify  text-dark break-all hyphens-auto; 
-            -webkit-hyphens: auto;
-            -ms-hyphens: auto;
-            hyphens: auto;
-        }
+        p {@apply  text-justify text-pretty text-dark;}
     }
 
     &-skills {

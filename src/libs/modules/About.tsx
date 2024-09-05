@@ -11,9 +11,9 @@ function About({name}:{name: string}) {
     return (  
         <div className='About' data-name={name}>
            <div className="container">
-            <div className="About-story">
+            <div  lang="ru" className="About-story">
                 <h3>{api.AboutMe.story.headline}</h3>
-                <p>{api.AboutMe.story.text}</p>
+                <p  lang="ru">{api.AboutMe.story.text}</p>
             </div>
             <div className="About-skills">
                 <h3>скилы</h3>
