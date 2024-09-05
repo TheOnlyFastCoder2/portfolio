@@ -25,6 +25,10 @@ class Api  {
     get skills() : IBD["aboutMe"]["skills"] {
         return this.BD["aboutMe"]!["skills"]!;
     }
+
+    get contacts() : IBD["contacts"] {
+        return this.BD["contacts"]!;
+    }
     
 }
 
@@ -40,5 +44,12 @@ export interface IBD {
          },
          skills: [string,string][]
      }
+
+     contacts: {
+        vk: string,
+        telegram: string,
+        github: string,
+        discord: string,
+    }
  }
  
