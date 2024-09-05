@@ -1,6 +1,6 @@
 
 import React,{ useEffect , useState } from "react";
-import Api from "libs/utils/api";
+import Api from "libs/utils/Api";
 
 
 type TApi = Api|null;

@@ -54,7 +54,7 @@ export default function ListenerScrollProvider({children}: Props) {
                 
                 if(prevInd) {
                     data.current.refWrapper.current!.parentElement!.scrollTo({
-                        top: sections![prevInd-1??0].posY,
+                        top: sections![(prevInd-1??0)].posY,
                         behavior: "smooth",
                      });
                 }
@@ -65,7 +65,7 @@ export default function ListenerScrollProvider({children}: Props) {
             if(data.current.refWrapper.current != null) {
                 data.current.refWrapper.current.parentElement!.onscroll = (e) => {
                     const {scrollTop}  = (e.target as HTMLDivElement);
-                    data.current.sections?.forEach(({name, posY}, i) => {
+                    data.current.sections?.forEach(({name, posY}) => {
                         if( posY*0.9  <= scrollTop) {
                             actions.setCurrNameSection(name);
                         }
