@@ -3,13 +3,14 @@
 .Home {
     @apply 
         relative flex items-center min-lg:gap-20 justify-around py-10
-        lg:flex-col lg:justify-start ;        
+        lg:flex-col lg:justify-start;        
 
     &-text {
-        @apply w-[Min(85%,621px)] lg:order-2;
+        @apply max-w-[Min(85%,621px)] lg:order-2 lg:mt-4;
 
         h1 {
-            color: $black;
+            @apply text-black min-lg:w-[621px] break-words;
+            
             span {
                 color: $white;
                 $stroke-p: 4px 4px;
@@ -32,7 +33,6 @@
         }
     }
     &-hero {
-
         @apply  
             relative w-[Clamp(250px,30vw,400px)] bg-decor rounded-lg 
             lg:h-[250px] lg:w-[70%] lg:object-contain min-lg:right-[4vw];
