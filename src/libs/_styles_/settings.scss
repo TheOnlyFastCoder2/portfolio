@@ -44,7 +44,7 @@ $background: #EEEDF8;
 
         @media (max-width: 1024px) {
             grid-template-columns: 1fr; 
-            grid-template-rows: 100px 61px 1fr 55px; 
+            grid-template-rows: 50px 61px 1fr 55px; 
 
             grid-template-areas: 
             "header header"
@@ -106,7 +106,7 @@ $background: #EEEDF8;
     }
 
     p,h4,span {
-        font-size: clamp(12px, .5vw + 1rem,18px);
+        font-size: clamp(12px, .3vw + 0.8rem,18px);
         line-height: 155%;
         font-weight: 400;
         letter-spacing: 0.1em;
