@@ -41,7 +41,7 @@ $background: #EEEDF8;
         main {grid-area: main;}
         footer {grid-area: footer;}
         
-
+ 
         @media (max-width: 1024px) {
             grid-template-columns: 1fr; 
             grid-template-rows: 50px 61px 1fr 55px; 
