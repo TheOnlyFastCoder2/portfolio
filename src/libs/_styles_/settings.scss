@@ -23,12 +23,9 @@ $background: #EEEDF8;
         height: 100vh;        
         display: grid;
         
-        
         font-family: "Inter", sans-serif;
         // font-optical-sizing: auto;
-
         font-style: normal;
-
         grid-template-columns: 1fr 61px; 
         grid-template-rows: 49px 1fr 55px; 
         grid-template-areas: 
@@ -62,9 +59,6 @@ $background: #EEEDF8;
         scrollbar-width:thin;
         scrollbar-color: transparent transparent;       
         // box-shadow: 0 0 0 1px red;
-       
-
-   
     }
 
     button, a {
@@ -82,31 +76,31 @@ $background: #EEEDF8;
 
     h1, h1 > span {
         @apply min-lg:leading-[90%] leading-[110%] sm:leading-[120%];
-        font-size: clamp(35px, 6vw , 90px);
+        font-size: clamp(30px, 0.7993rem + 4.0214vw , 90px);
         font-weight: 900;
         letter-spacing: 2px;
     }
     h2 {
-        font-size: clamp(26px, 2vw + 1rem, 36px);
+        font-size: clamp(26px, 1.4457rem + 0.6702vw, 36px);
         line-height: 112%;
         font-weight: 900;
     }
 
     h3 {
-        font-size: clamp(18px,1.7vw + 1rem,24px);
+        font-size: clamp(18px, 1.0174rem + 0.4021vw ,24px);
         line-height: 100%;
         font-weight: 900;
     }
 
     body, li ,a , h4,  button {
-        font-size: clamp(14px, .5vw + 1rem,24px);
+        font-size: clamp(14px, 0.6957rem + 0.6702vw ,24px);
         line-height: 135%;
         font-weight: 800;
         letter-spacing: 0.08em;
     }
 
     p,h4,span {
-        font-size: clamp(12px, .3vw + 0.8rem,18px);
+        font-size: clamp(12px, 0.6424rem + 0.4021vw,18px);
         line-height: 155%;
         font-weight: 400;
         letter-spacing: 0.1em;

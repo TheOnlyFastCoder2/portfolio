@@ -1,5 +1,5 @@
 
-import React,{ useEffect , useState } from "react";
+import React,{ useEffect , useRef, useState } from "react";
 import Api from "libs/utils/Api";
 
 
@@ -10,6 +10,7 @@ export default function ApiProvider({children}: Props) {
     const [api, setApi] = useState<TApi>(null);
     useEffect(() => {
         let timeID:NodeJS.Timeout|null = null;
+        
         const api = new Api();
         api.initApi().then((data) => {
             timeID = setTimeout(() => {
@@ -18,7 +19,6 @@ export default function ApiProvider({children}: Props) {
                 clearTimeout(timeID!);
             }, 1000)
         })
-
         return () => {
             clearTimeout(timeID!);
         }
@@ -43,4 +43,3 @@ export function isLoadingData(): boolean {
 interface Props {
     children: React.ReactNode
 }
-

@@ -1,6 +1,6 @@
 .Header {
-    @apply flex lg:flex-col bg-white;
-
+    @apply sticky flex lg:flex-col bg-white z-20;
+    
     &-marquee {
         @apply
             flex-grow text-center content-center  font-semibold text-black

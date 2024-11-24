@@ -13,7 +13,8 @@
       "default",
       {
         "ignore": [
-          "scrollbar-width"
+          "scrollbar-width",
+          "backdrop-filter"
         ]
       }
     ]

@@ -2,51 +2,81 @@
 
 .Home {
     @apply 
-        relative flex items-center min-lg:gap-20 justify-around py-10
-        lg:flex-col lg:justify-start;        
+        relative flex items-center justify-around
+        lg:flex-col lg:justify-start overflow-hidden;     
+        
+    gap:clamp(0.3125rem,0.0436rem + 1.0054vw,1.25rem);
 
     &-text {
-        @apply max-w-[Min(85%,621px)] lg:order-2 lg:mt-4;
+        @apply max-w-[Min(85%,621px)] lg:order-2 lg:mt-4 lg:text-center;
+        text-shadow: 0 4px 4px rgb(0,0,0,0.15);
+
 
         h1 {
-            @apply text-black min-lg:w-[621px] break-words;
-            
+            @apply text-white min-lg:w-[621px] break-words;
+            opacity: 0.9;
+            text-wrap: pretty;
+            max-width: clamp(31.25rem, 29.0806rem + 8.1099vw, 38.8125rem);;
             span {
                 color: $white;
                 $stroke-p: 4px 4px;
                 $stroke-n: -3px -3px;
-                letter-spacing: 0.9rem;
-                text-shadow:  $stroke_p  $black, $stroke-n  $black;
+                opacity: 0.68;
+                // text-shadow:  $stroke_p  $black, $stroke-n  $black;
             }
         }
         p {
-            @apply text-dark mt-10 mb-3 max-w-full;
-            width: 388px;
+            @apply 
+                text-white mt-10 mb-3 
+                max-w-full opacity-95
+                lg:mx-auto;
+            letter-spacing: 4px;
+            max-width: 488px;
+            text-wrap: pretty;
         }
         
         button {
             @apply 
                 px-8 py-2 mt-4 
-                bg-decor text-white 
+                bg-decor text-white
                 rounded-md cursor-pointer
-                uppercase;
+                uppercase opacity-95;
+                
+            transition: 0.2s ease;
+            &:hover {
+                transform: scale(1.05);
+            }
+            
         }
     }
     &-hero {
         @apply  
-            relative w-[Clamp(250px,30vw,400px)] bg-decor rounded-lg 
+            relative   rounded-lg 
             lg:h-[250px] lg:w-[70%] lg:object-contain min-lg:right-[4vw];
+        max-width: 400px;
+        min-width:250px;
+         filter: drop-shadow(10px 0px 20px rgba(255, 255, 255, 0.1)); /* Modern browsers */
+        -webkit-filter: drop-shadow(10px 0px 20px rgba(255, 255, 255, 0.1)); /* Safari */
+        box-shadow: 5px 0px 20px rgba(255, 255, 255, 0.05); /* Fallback for older browsers */
+        padding: 20px;
+    }
 
-     
-        box-shadow: inset 0 0 0 10px $black;
-        // animation: rotating 1s ease-in 1;
-        // transition: transform 0.5s ease-in-out ;
-        // transform: skew(-12deg,0deg);
- 
-        // @keyframes rotating {
-        //     0% {transform: scale(0.5);}
-        //     70% {transform:  scale(1);}
-        // }
-        
+    &-bg {
+        @apply top-0 left-0 absolute object-cover w-full h-full;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color: $white, $alpha: .2);
+            backdrop-filter: blur(20px);
+        }
     }
 }

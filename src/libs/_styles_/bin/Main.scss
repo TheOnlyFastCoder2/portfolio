@@ -7,12 +7,8 @@
 
     &-content {
         @apply size-full min-h-full h-full;
-  
         & > div {
-            @apply min-h-full w-full pb-20;
-            // &.Home {
-            //     @apply min-h-[700px] xl:min-h-full;
-            // }
+            @apply min-h-full  min-h-full mb-20 px-5 py-10;
         }
     }
     
