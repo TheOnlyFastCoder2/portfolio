@@ -8,7 +8,7 @@ function Home({name}:{name: string}) {
     return (  
         <div className='Home' data-name={name}>
             <div className='Home-bg'>
-                <img src="/imgs/bg.jpg" alt="" />
+                <img src="/imgs/bg.webp" alt="" loading='lazy'/>
             </div>
             <div className="Home-text">
                 <h1>Превращаю <span>идеи</span> в реальность</h1>
