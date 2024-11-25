@@ -8,8 +8,7 @@
         @apply 
             pb-8 h-[600px] grid gap-6 grid-flow-row overflow-y-auto
             sm:grid-cols-1 min-sm:grid-cols-2 min-lg:grid-cols-3 xl:grid-cols-4;
-            grid-auto-rows: 0.1fr; 
-        
+            grid-auto-rows: 0.1fr;  
     }
 
     &-item {

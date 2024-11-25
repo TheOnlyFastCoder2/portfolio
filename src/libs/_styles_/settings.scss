@@ -55,11 +55,8 @@ $background: #EEEDF8;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        // font-weight: 400;
-        scrollbar-width:thin;
-        scrollbar-color: transparent transparent;       
-        // box-shadow: 0 0 0 1px red;
     }
+
 
     button, a {
         cursor: pointer;
@@ -104,7 +101,5 @@ $background: #EEEDF8;
         line-height: 155%;
         font-weight: 400;
         letter-spacing: 0.1em;
-    }
-
-   
+    } 
 }

@@ -1,14 +1,30 @@
 .Main {
     @apply m-2 bg-white rounded-md  overflow-y-scroll;
-    scroll-behavior: smooth;
-    * {
+
+    --width: 0;
+    &::-webkit-scrollbar {
+        width: var(--width);
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb,
+    &::-moz-scrollbar-thumb,&::-webkit-scrollbar-thumb,
+    &::-ms-scrollbar-thumb, &::-webkit-scrollbar-thumb
+    {
+        background: transparent;
+    }
+    &::-ms-scrollbar,&::-moz-scrollbar {
+        width: var(--width);
+    }
+
+    & ,* {
         scroll-behavior: smooth;
     }
 
     &-content {
-        @apply size-full min-h-full h-full;
+        @apply size-full min-w-full min-h-full;
         & > div {
-            @apply min-h-full  min-h-full mb-20 px-5 py-10;
+            @apply min-h-full min-h-full mb-20 px-5 py-10;
         }
     }
     

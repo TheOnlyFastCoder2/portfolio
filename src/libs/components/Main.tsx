@@ -7,7 +7,7 @@ import { useListenerScrollState } from "libs/context/ListenerScrollContext";
 
 function Main() {
     const {refWrapper} = useListenerScrollState();
-    console.log(24)
+
     return (  
         <main className='Main scrollbar'>
             <div className="Main-content" ref={refWrapper}>
