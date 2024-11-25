@@ -7,7 +7,7 @@ function Header() {
 
     return (  
         <header className='Header'>
-            <p className='Header-marquee'>Привет 🤗, добро пожаловтаь на сайт 👉👈🥺</p>
+            <p className='Header-marquee'>Привет 🤗, добро пожаловать на сайт 👉👈🥺</p>
             <h3 className='Header-namePage'>{currNameSection}</h3>
         </header>
     );
