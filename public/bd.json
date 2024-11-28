@@ -1,5 +1,10 @@
 {
     "projects": [
+        {
+            "srcImg":"https://github.com/user-attachments/assets/a07730f4-82fd-432e-af70-e585bf40fa2f", 
+            "github":"https://github.com/TheOnlyFastCoder2/Hikers", 
+            "website":"https://hikers-bay.vercel.app/"
+        },
          {
             "srcImg":"https://github.com/user-attachments/assets/fc1c095b-7b79-42d3-9484-3216927fe90d", 
             "github":"https://github.com/TheOnlyFastCoder2/OpenBomber", 
