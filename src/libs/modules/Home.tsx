@@ -17,7 +17,7 @@ function Home({name}:{name: string}) {
                 </p>
                 <button onClick={() => toScroll(2)}>проекты</button>
             </div>
-            <img className='Home-hero' src="/imgs/Hero.png"/>            
+            <img className='Home-hero' src="/imgs/Hero.png" loading='lazy'/>            
         </div>
     );
 }
