@@ -13,7 +13,7 @@ function Projects({name}:{name: string}) {
                     api.Projects.map(({srcImg, github, website}, i) => {
                         return (
                             <div  key={i} className="Projects-item">
-                                <img src={srcImg} alt="" loading="lazy"/>
+                                <img src={srcImg} alt="" loading="eager"/>
                                 <div className="Projects-item-bar">
                                     <a href={github} className='Projects-item-bar-button' target="_blank"><FaGithub/> репозиторий</a>
                                     <a href={website} className='Projects-item-bar-button' target="_blank"><FaLink/> сайт</a>
