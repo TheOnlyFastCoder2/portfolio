@@ -1,5 +1,5 @@
 .LoadingPage {
-    @apply w-screen h-screen  text-black flex-col px-5;
+    @apply w-full h-full absolute text-black flex-col px-5;
 
     &, & > div {
         @apply flex justify-center items-center gap-3 flex-wrap;

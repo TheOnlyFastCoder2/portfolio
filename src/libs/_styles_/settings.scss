@@ -13,7 +13,7 @@ $background: #EEEDF8;
         @apply w-screen h-screen flex justify-center items-center;
     }
     #root {
-        @apply bg-background;
+        @apply bg-background relative;
         outline: 20px solid $black;
 
         max-width: 1980px;
