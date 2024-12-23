@@ -1,32 +1,32 @@
 
 
 class Api  {
-    private BD: Partial<IBD> = {};
+    private BD: Partial<IDB> = {};
     
-    initApi(): Promise<IBD> {
+    initApi(): Promise<IDB> {
         return fetch('/bd.json').then((resp) => {
             return resp.json();
         })
         
     }
 
-    set setBD(data: IBD) {
+    set setBD(data: IDB) {
         this.BD = data;
     }
 
-    get Projects (): IBD["projects"] {
+    get Projects (): IDB["projects"] {
         return this.BD["projects"]!;
     }
 
-    get AboutMe (): IBD["aboutMe"] {
+    get AboutMe (): IDB["aboutMe"] {
         return this.BD["aboutMe"]!;
     }
 
-    get skills() : IBD["aboutMe"]["skills"] {
+    get skills() : IDB["aboutMe"]["skills"] {
         return this.BD["aboutMe"]!["skills"]!;
     }
 
-    get contacts() : IBD["contacts"] {
+    get contacts() : IDB["contacts"] {
         return this.BD["contacts"]!;
     }
     
@@ -34,9 +34,15 @@ class Api  {
 
 export default Api;
 
+export const typesOfProjects = ['app', 'landing', 'game'] as const;
+export type  TProjects = typeof typesOfProjects[number];
+export interface IProject {
+    srcImg:string, github:string, 
+    website:string, type: TProjects, srcReadme: string,
+}
 
-export interface IBD {
-     projects:  {srcImg:string, github:string, website:string}[],
+export interface IDB {
+     projects:  IProject[],
      aboutMe: {
          story: {
             headline: string,

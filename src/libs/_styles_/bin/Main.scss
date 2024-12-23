@@ -1,5 +1,5 @@
 .Main {
-    @apply m-2 bg-white rounded-md  overflow-y-scroll;
+    @apply m-2 bg-background rounded-md  overflow-y-scroll;
 
     --width: 0;
     &::-webkit-scrollbar {
@@ -22,9 +22,9 @@
     }
 
     &-content {
-        @apply size-full min-w-full min-h-full;
+        @apply size-full min-w-full min-h-full  ;
         & > div {
-            @apply min-h-full min-h-full mb-20 px-5 py-10;
+            @apply min-h-full py-4 px-5 bg-white;
         }
     }
     

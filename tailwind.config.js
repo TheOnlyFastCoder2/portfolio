@@ -28,10 +28,10 @@ export default {
       },
 
       colors: {
-        "white": "#ffffff",
         "decor": "#1abc9c",
         "black": "#404042",
         "dark": "#737374",
+        "white": "#ffffff",
         "background": '#EEEDF8',
       }
     },

@@ -1,5 +1,4 @@
-
-import React,{ useRef, useState } from "react";
+import React,{ useEffect, useRef, useState } from "react";
 
 const ListenerScrollContext = React.createContext<null|{
     data: IData,
@@ -7,21 +6,27 @@ const ListenerScrollContext = React.createContext<null|{
 }>(null);
 
 
+function getPosY(parent:HTMLDivElement, child:HTMLDivElement): number {
+    return child.getBoundingClientRect().top - parent.getBoundingClientRect().top
+}
 
 export default function ListenerScrollProvider({children}: Props) {
+    const stepScroll = 20;
     const [_, setCurrNameSection] = useState("");
     const data = useRef<IData>({
         posY: 0,
-        prevInd: null,
+        prevInd: 1,
         timeID: null,
         sections: null,
         currNameSection: null,
         refWrapper: useRef<HTMLDivElement|null>(null)
     })
 
-    function getCSSProp(domEl: HTMLElement, prop: string): string {
-        return getComputedStyle(domEl, null).getPropertyValue(prop);
-    }
+    useEffect(() => {
+        return () => {
+            clearInterval(data.current.timeID!);
+        }
+    }, []);
 
     const actions = {
         setCurrNameSection(name: string) {
@@ -31,15 +36,11 @@ export default function ListenerScrollProvider({children}: Props) {
 
         initSections(): HTMLDivElement {
             const div = (data.current.refWrapper.current! as HTMLDivElement);
-            
-            
             data.current.sections = [...div.children].map((item) => {
                 const domEl:HTMLDivElement = item as HTMLDivElement;
-                const posTop = domEl.offsetTop - (+parseInt(getCSSProp(domEl, "padding-bottom")))/2;
-                const posY = posTop - div.offsetTop;
                 return {
                     name: domEl.getAttribute('data-name')!,
-                    posY: posY
+                    posY: getPosY(div, domEl),
                 };
             })
     
@@ -54,7 +55,7 @@ export default function ListenerScrollProvider({children}: Props) {
                 
                 if(prevInd) {
                     data.current.refWrapper.current!.parentElement!.scrollTo({
-                        top: sections![(prevInd-1??0)].posY,
+                        top: sections![(prevInd-1||0)].posY,
                         behavior: "smooth",
                      });
                 }
@@ -66,7 +67,7 @@ export default function ListenerScrollProvider({children}: Props) {
                 data.current.refWrapper.current.parentElement!.onscroll = (e) => {
                     const {scrollTop}  = (e.target as HTMLDivElement);
                     data.current.sections?.forEach(({name, posY}) => {
-                        if( posY*0.9  <= scrollTop) {
+                        if( posY <= scrollTop) {
                             actions.setCurrNameSection(name);
                         }
                     })
@@ -76,31 +77,34 @@ export default function ListenerScrollProvider({children}: Props) {
         
         toScroll(currInd:number) {
             try {
+                clearInterval(data.current.timeID!);
                 const div = actions.initSections();
                 const checkpoint = data.current.sections![currInd-1].posY;
-        
+                const offsetTop = Math.abs(checkpoint - div.parentElement!.scrollTop);
+                 
+                if(currInd === data.current.prevInd && offsetTop < stepScroll) return;
                 const timeID = setInterval(() => {
                     const {prevInd, posY} = data.current;
         
                     if(prevInd != null) {
         
-                        prevInd <= currInd
-                        ? data.current.posY += 20
-                        : data.current.posY -= 20;
+                        prevInd < currInd
+                        ? data.current.posY += stepScroll
+                        : data.current.posY -= stepScroll;
         
-                        if(checkpoint <= posY && prevInd <= currInd) {
+                        if(checkpoint < posY && prevInd <= currInd) {
                             data.current.prevInd = currInd;
                             clearInterval(timeID!);
                         }
-                        else if(checkpoint >= posY && prevInd >= currInd) {
+                        else if(checkpoint > posY-stepScroll && prevInd >= currInd) {
                             data.current.prevInd = currInd;
                             clearInterval(timeID!);
                         }
                     }
         
                     if(prevInd === null) {
-                        data.current.posY += 20;
-                        if(checkpoint <= posY) {
+                        data.current.posY += stepScroll;
+                        if(checkpoint < posY) {
                             data.current.prevInd = currInd;
                             clearInterval(timeID!);
                         }
@@ -108,7 +112,7 @@ export default function ListenerScrollProvider({children}: Props) {
         
                     div.parentElement!.scrollTo({
                         top: posY,
-                        behavior: "smooth",
+                        behavior: "auto"
                     });
                 }, 10)
             } catch (error) {
@@ -157,7 +161,7 @@ interface ISections {
 
 interface IData {
     posY: number;
-    prevInd: null|number;
+    prevInd: number;
     timeID: NodeJS.Timeout|null;
     sections: null|ISections[];
     currNameSection: null|string,

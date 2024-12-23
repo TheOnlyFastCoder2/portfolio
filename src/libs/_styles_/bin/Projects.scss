@@ -1,14 +1,48 @@
-@import "../settings.scss";
-
+// @import "../settings.scss";
+@import "./markdown.scss";
 
 .Projects {
-    @apply flex justify-center min-lg:items-center ;
+    @apply flex flex-col gap-4 items-center justify-center min-lg:items-center ;
+
+    &__filter {
+        @apply flex gap-5
+        items-center justify-center sm:w-full
+        text-dark py-1 px-2 overflow-x-auto
+        rounded-lg bg-black shadow-2xl shadow-decor/40 !important; 
+
+        &-tag {
+            @apply flex items-center min-w-min px-4 py-2 text-sm 
+            rounded-md  cursor-pointer !important;
+            &:hover, &:focus-visible {
+                @apply bg-background text-black;
+            }
+            &.__active {
+                @apply bg-decor text-background hover:scale-105 transition-transform;
+            }
+        }
+    }
 
     &> .container {
         @apply 
             pb-8 h-[600px] grid gap-6 grid-flow-row overflow-y-auto
             sm:grid-cols-1 min-sm:grid-cols-2 min-lg:grid-cols-3 xl:grid-cols-4;
             grid-auto-rows: 0.1fr;  
+        
+        &.__loaded {
+            .Projects-item {
+                animation-name: none;
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%,rgba(0,0,0, 1) 100%);
+                background-color: rgba(0, 0, 0, 0.233);
+
+                &.__active {
+                    box-shadow: inset 0 20px  40px rgba(0, 0, 0, 1);
+                }
+
+                img {
+                    filter: opacity(0.6);
+                }
+            }
+        }
     }
 
     &-item {
@@ -16,14 +50,21 @@
             relative max-w-80 aspect-video rounded-md
             border-black border-4 shadow-lg;
  
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%,rgba(0,0,0, 1) 100%);
-        background-color: black;
-        
+        background: linear-gradient(260deg, #1abc9c, #29cfae, #1abc9c);
+        background-size: 200% 200%;
+        animation: gradientAnimation 5s ease infinite;
+
+        @keyframes gradientAnimation {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: opacity(0.6);
+            filter: opacity(0);
         }
 
         &-bar {
@@ -31,8 +72,111 @@
             &-button {
                 @apply 
                     flex items-center justify-center gap-2 flex-grow  cursor-pointer
-                    text-[16px] hover:bg-black hover:text-white transition-colors;
+                    text-[16px] hover:bg-black hover:text-white transition-colors !important;
             }
         }
+
+        &-tag {
+            @apply absolute top-0 right-0 block rounded-sm 
+            text-xs px-2 py-1 bg-decor text-white/80 z-50 m-2 select-none
+            border-black/20 transition-transform border-2 font-semibold shadow-xl shadow-black/20 !important;
+        }
+        &-info {
+            @apply absolute top-0 left-0 
+            flex items-center justify-center size-6 text-sm
+            m-2 rounded-[50%] z-50 bg-black cursor-pointer 
+            hover:scale-[1.4] transition-transform; 
+            svg {@apply fill-background ;}
+            &:hover svg { @apply fill-decor }
+        }
     }
+}
+
+.ReadMe {
+    @apply absolute top-0 left-0 z-[9999] bg-white;
+    max-width: 1980px;
+    max-height: 1080px;
+    width: 100vw;
+    height: 100vh;   
+
+    &::before {
+        content: "";
+        display:block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left:0;top:0;
+        background-color: red;
+        z-index: -1;
+        background-color: #EEEDF820;
+    }
+
+    &-bar {
+        @apply flex px-4 justify-end items-center w-full h-[60px];
+        span {
+            @apply cursor-pointer transition-transform
+            hover:scale-[1.2] text-black ;
+            svg {
+                @apply size-[18px]
+            }
+        }
+    } 
+    &-container {
+        outline: 2px solid transparent;
+        box-shadow:  0 0 3vw rgba(119, 146, 235, 0.09);
+        @apply 
+        h-[calc(100%-60px)] mx-auto
+        w-[min(100%,1200px)] overflow-y-auto;
+                    
+        & > h3 {
+            @apply py-4 px-2 text-lg font-semibold  mb-2 bg-black text-background;
+        }
+
+        .wrapper {
+            @apply  pr-[4px];
+            
+            @apply flex mx-auto max-w-full p-2 
+            min-h-full bg-white;
+         
+            &.__pending {
+                @apply items-center justify-center;
+            }
+
+            
+            .LoadingPage {
+                @apply relative w-full aspect-video;
+            }
+        }
+
+        $width: 8px;
+        $bg: #404042;
+        &::-webkit-scrollbar {
+            width: $width;
+            background-color: transparent;
+          }
+      
+          &::-webkit-scrollbar-thumb {
+            background:$bg;
+            cursor: grab;
+          }
+      
+          &::-moz-scrollbar {
+            width: $width;
+          }
+      
+          &::-moz-scrollbar-thumb {
+            background:$bg;
+            cursor: grab;
+          }
+      
+          /* IE и Edge (частично, стилизация ограничена) */
+          &::-ms-scrollbar {
+              width: $width;
+          }
+      
+          &::-ms-scrollbar-thumb {
+              background: $bg;
+              cursor: grab;
+          }
+    }  
 }

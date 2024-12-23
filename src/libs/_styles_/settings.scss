@@ -57,49 +57,55 @@ $background: #EEEDF8;
         box-sizing: border-box;
     }
 
-
-    button, a {
-        cursor: pointer;
-    }
     
-    img {
-        width: 100%;
-    }
-
-    ul, a {
-        text-decoration: none; 
-        list-style-type: none;
-    }
-
-    h1, h1 > span {
-        @apply min-lg:leading-[90%] leading-[110%] sm:leading-[120%];
-        font-size: clamp(30px, 0.7993rem + 4.0214vw , 90px);
-        font-weight: 900;
-        letter-spacing: 2px;
-    }
-    h2 {
-        font-size: clamp(26px, 1.4457rem + 0.6702vw, 36px);
-        line-height: 112%;
-        font-weight: 900;
-    }
-
-    h3 {
-        font-size: clamp(18px, 1.0174rem + 0.4021vw ,24px);
-        line-height: 100%;
-        font-weight: 900;
-    }
-
-    body, li ,a , h4,  button {
-        font-size: clamp(14px, 0.6957rem + 0.6702vw ,24px);
-        line-height: 135%;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-    }
-
-    p,h4,span {
-        font-size: clamp(12px, 0.6424rem + 0.4021vw,18px);
-        line-height: 155%;
-        font-weight: 400;
-        letter-spacing: 0.1em;
+    header,aside,footer,
+    .About,
+    .Home,
+    .Projects,
+    .LoadingPage {
+        button, a {
+            cursor: pointer;
+        }
+        
+        img {
+            width: 100%;
+        }
+    
+        ul, a {
+            text-decoration: none; 
+            list-style-type: none;
+        }
+    
+        h1, h1 > span {
+            @apply min-lg:leading-[90%] leading-[110%] sm:leading-[120%];
+            font-size: clamp(30px, 0.7993rem + 4.0214vw , 90px);
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        h2 {
+            font-size: clamp(26px, 1.4457rem + 0.6702vw, 36px);
+            line-height: 112%;
+            font-weight: 900;
+        }
+    
+        h3 {
+            font-size: clamp(18px, 1.0174rem + 0.4021vw ,24px);
+            line-height: 100%;
+            font-weight: 900;
+        }
+    
+        li ,a , h4,  button {
+            font-size: clamp(14px, 0.6957rem + 0.6702vw ,24px);
+            line-height: 135%;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+        }
+    
+        p,h4,span {
+            font-size: clamp(12px, 0.6424rem + 0.4021vw,18px);
+            line-height: 155%;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+        }
     } 
 }
