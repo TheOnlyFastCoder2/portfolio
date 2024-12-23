@@ -35,7 +35,7 @@ function Projects({name}:{name: string}) {
                     const isActive = type === tag ? '__active': '';
                     return (
                         <li key={type} onClick={setTag.bind(null, type)}>
-                            <span className={`Projects__filter-tag ${isActive}`}>{isActive && <>🏷️</>} {type}</span>
+                            <span className={`Projects__filter-tag ${isActive}`}>{isActive && <span>🏷️</span>} {type}</span>
                         </li>
                     )
                 })}

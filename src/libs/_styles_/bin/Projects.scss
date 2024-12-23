@@ -11,14 +11,13 @@
         rounded-lg bg-black shadow-2xl shadow-decor/40 !important; 
 
         &-tag {
-            @apply flex items-center min-w-min px-4 py-2 text-sm 
+            @apply flex flex-wrap items-center justify-center  px-4 py-2 text-sm 
             rounded-md  cursor-pointer !important;
             &:hover, &:focus-visible {
                 @apply bg-background text-black;
             }
-            &.__active {
-                @apply bg-decor text-background hover:scale-105 transition-transform;
-            }
+            & > span {@apply md:hidden;}
+            &.__active {@apply bg-decor text-background hover:scale-105 transition-transform;}
         }
     }
 
@@ -129,14 +128,14 @@
         w-[min(100%,1200px)] overflow-y-auto;
                     
         & > h3 {
-            @apply py-4 px-2 text-lg font-semibold  mb-2 bg-black text-background;
+            @apply min-w-full  py-4 px-2 text-lg font-semibold  mb-2 bg-black text-background;
         }
 
         .wrapper {
             @apply  pr-[4px];
             
             @apply flex mx-auto max-w-full p-2 
-            min-h-full bg-white;
+            min-h-full bg-white overflow-x-auto;
          
             &.__pending {
                 @apply items-center justify-center;
